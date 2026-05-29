@@ -73,16 +73,16 @@ The application processes symptom data input by users and provides tuberculosis 
 ## Screenshots
 
 ### Login Page
-
+![Login Page](screenshot/login_page.png)
 
 ### Registration Page
-(Add screenshot here)
+![Input Page](screenshot/input_page.png)
 
 ### Diagnosis Page
-(Add screenshot here)
+![result Page](screenshot/result.png)
 
 ### Result Page
-(Add screenshot here)
+![riwayat Page](screenshot/riwayat_pengecekan.png)
 
 ---
 
