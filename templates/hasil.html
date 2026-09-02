@@ -102,39 +102,57 @@
                   </tr>
                 </tbody>
               </table></center><br><br>
-                <center><h2>Persentase kemungkinan tiap jenis Tuberkulosis:</h2>
-                <table class="table table-bordered" style="width: 50%; margin: auto; margin-top: 30px;">
-                    <thead style="background-color: #f2f2f2;">
-                        <tr>
-                            <th>Jenis Tuberkulosis</th>
-                            <th>Persentase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Paru</td>
-                            <td>{{ (persentase['paru'] * 100) | round(2) }}%</td>
-                        </tr>
-                        <tr>
-                            <td>Otak</td>
-                            <td>{{ (persentase['otak'] * 100) | round(2) }}%</td>
-                        </tr>
-                        <tr>
-                            <td>Tulang Punggung</td>
-                            <td>{{ (persentase['tulang punggung'] * 100) | round(2) }}%</td>
-                        </tr>
-                        <tr>
-                            <td>Kulit</td>
-                            <td>{{ (persentase['kulit'] * 100) | round(2) }}%</td>
-                        </tr>
-                        <tr>
-                            <td>Hati</td>
-                            <td>{{ (persentase['hati'] * 100) | round(2) }}%</td>
-                        </tr>
-                    </tbody>
-                </table></center>
-            </div>
+                <center><h2>Visualisasi Hasil Analisis</h2>
 
+<div style="width: 80%; margin: 30px auto;">
+    <canvas id="diagnosisChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const diagnosisData = {{ persentase | tojson }};
+
+  const diagnosisLabels = [
+      'Paru',
+      'Otak',
+      'Tulang Punggung',
+      'Kulit',
+      'Hati'
+  ];
+
+  const diagnosisValues = [
+      diagnosisData['paru'] * 100,
+      diagnosisData['otak'] * 100,
+      diagnosisData['tulang punggung'] * 100,
+      diagnosisData['kulit'] * 100,
+      diagnosisData['hati'] * 100
+  ];
+
+  new Chart(document.getElementById('diagnosisChart'), {
+      type: 'bar',
+      data: {
+          labels: diagnosisLabels,
+          datasets: [{
+              label: 'Derajat Keanggotaan (%)',
+              data: diagnosisValues
+          }]
+      },
+      options: {
+          responsive: true,
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  max: 100,
+                  title: {
+                      display: true,
+                      text: 'Derajat Keanggotaan (%)'
+                  }
+              }
+          }
+      }
+  });
+</script>
             {% if grafik %}
                 <center><div class="grafik">
                     <h2>Grafik Fungsi Keanggotaan</h2>
@@ -154,7 +172,8 @@
   <footer id="footer" class="footer">
 
     <div class="container">
-      <div class="row gy-4">
+      <br><br><br>
+      <!-- <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
             <span>Impact</span>
@@ -171,7 +190,7 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li> 
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Terms of service</a></li>
@@ -203,18 +222,18 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
     <div class="container mt-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Latifmaruf</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/impact-bootstrap-business-website-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><br><br><br><br><br><br><br>
       </div>
     </div>
 

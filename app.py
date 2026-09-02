@@ -522,14 +522,13 @@ def cek():
     grafik_filename = plot_output_membership(output_var)
 
     return render_template('hasil.html',
-                           hasil=hasil_diagnosis,
-                           crisp=hasil_crisp,
-                           persentase=tb_output,
-                           grafik=grafik_filename)
+                            hasil=hasil_diagnosis,
+                            crisp=hasil_crisp,
+                            persentase=tb_output,
+                            grafik=grafik_filename)
 
-
-# Jalankan server Flask
-if __name__ == '__main__':
-    create_tables()
-    buat_admin_default()  # <--- tambahkan ini
-    app.run(debug=True)
+    # Jalankan server Flask
+    if __name__ == '__main__':
+        create_tables()
+        buat_admin_default()  # <--- tambahkan ini
+        app.run(debug=True)
