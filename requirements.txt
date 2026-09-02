@@ -5,6 +5,8 @@ Flask-Login
 pandas
 numpy
 scikit-fuzzy
+scipy
+networkx
 matplotlib
 openpyxl
 gunicorn
