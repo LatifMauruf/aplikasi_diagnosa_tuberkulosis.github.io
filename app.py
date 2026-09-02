@@ -526,9 +526,8 @@ def cek():
                             crisp=hasil_crisp,
                             persentase=tb_output,
                             grafik=grafik_filename)
-
-    # Jalankan server Flask
-    if __name__ == '__main__':
-        create_tables()
-        buat_admin_default()  # <--- tambahkan ini
-        app.run(debug=True)
+# Jalankan server Flask
+if __name__ == '__main__':
+    create_tables()
+    buat_admin_default()# <--- tambahkan ini
+    app.run(debug=True)
